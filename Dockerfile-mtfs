@@ -1,0 +1,15 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt install vim python3 python3-pip git -y && pip install pyinstaller
+RUN export DEBIAN_FRONTEND=noninteractive; apt install golang-go fuse -y 
+
+RUN git clone https://github.com/Cyber-Tracer/MTFS_overlay-filesystem-infinite-traversal mtfs
+WORKDIR /mtfs/cmd/infiniteDirectory
+RUN go build
+
+COPY mount.sh /mtfs/cmd/infiniteDirectory/mount.sh
+RUN chmod +x /mtfs/cmd/infiniteDirectory/mount.sh
+
+
+
+CMD ["./mount.sh"]
