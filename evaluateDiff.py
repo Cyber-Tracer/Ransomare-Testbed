@@ -49,7 +49,7 @@ def parseLines (lines, lookup):
     #print(modifiedBytes / 1024 / 1024)
 
     #print('\nCSV:')
-    #print('name, changed, deleted, renamed, modified')
+    print('name, changed, deleted, renamed, modified')
     print(sys.argv[1] + "," + str(changedBytes) + "," + str(deletedBytes) + "," + str(renamedBytes) + "," + str(modifiedBytes))
 
 
